@@ -16,7 +16,7 @@
     "virtualNetworkName": "[variables('vmName')]",
     "publicIPAddressName": "[variables('vmName')]",
     "networkSecurityGroupName": "[variables('vmName')]",
-    "vmSize": "STANDARD_DS2_V2",
+    "vmSize": "Standard_D4_v2",
     "ubuntuOSVersion": "16.04-LTS",
     "uniqueDnsLabelPrefix": "[concat(variables('vmName'), 'store', uniquestring(resourceGroup().id))]",
     "location": "[resourceGroup().location]",
