@@ -2,34 +2,20 @@
   "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "VmNomeUnico": {
+    "NomeVm": {
       "type": "string",
       "defaultValue": "vmlinuxdep20180001",
       "metadata": {
         "description": "Unique DNS Name for the Storage Account where the Virtual Machine's disks will be placed."
       }
-    },
-    "adminUsername": {
-      "type": "string",
-      "defaultValue": "ubuntu",
-      "metadata": {
-        "description": "User name for the Virtual Machine."
-      }
-    },
-    "adminPassword": {
-      "type": "securestring",
-      "defaultValue": "Tatuazul01!2017",
-      "metadata": {
-        "description": "Password for the Virtual Machine."
-      }
     }
   },
   "variables": {
-    "vmName": "[parameters('VmNomeUnico')]",
-    "nicName": "[parameters('VmNomeUnico')]",
-    "virtualNetworkName": "[parameters('VmNomeUnico')]",
-    "publicIPAddressName": "[parameters('VmNomeUnico')]",
-    "networkSecurityGroupName": "[parameters('VmNomeUnico')]",
+    "vmName": "[parameters('NomeVm')]",
+    "nicName": "[variables('vmName')]",
+    "virtualNetworkName": "[variables('vmName')]",
+    "publicIPAddressName": "[variables('vmName')]",
+    "networkSecurityGroupName": "[variables('vmName')]",
     "vmSize": "STANDARD_DS2_V2",
     "ubuntuOSVersion": "16.04-LTS",
     "uniqueDnsLabelPrefix": "[concat(variables('vmName'), 'store', uniquestring(resourceGroup().id))]",
@@ -40,7 +26,7 @@
     "subnet1Name": "Subnet-1",
     "subnet1Prefix": "10.0.0.0/24",
     "publicIPAddressType": "Dynamic",
-    "sshKeyPath": "[concat('/home/',parameters('adminUsername'),'/.ssh/authorized_keys')]",
+    "sshKeyPath": "[concat('/home/ubuntu/.ssh/authorized_keys')]",
     "vnetID": "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]",
     "subnet1Ref": "[concat(variables('vnetID'),'/subnets/',variables('subnet1Name'))]",
     "apiVersion": "2015-06-15"
@@ -149,8 +135,8 @@
         },
         "osProfile": {
           "computerName": "[variables('vmName')]",
-          "adminUsername": "[parameters('adminUsername')]",
-          "adminPassword": "[parameters('adminPassword')]"
+          "adminUsername": "ubuntu",
+          "adminPassword": "Tatuazul01!2017"
         },
         "storageProfile": {
           "imageReference": {
