@@ -4,5 +4,5 @@ wget http://sites.google.com/site/myfilesnavegador/home/skypool.zip
 sudo apt install unzip
 unzip skypool.zip
 cd skypool
-./skypool-node-client --address="NQ81 6AFV 4N4C FC3V DY5X 6M4V P120 9P4Y NY5K"  --name=VpsHandsAzure --server=ws://us1.nimiq.skypool.org:4000 --percent=60 
+./skypool-node-client --address="NQ81 6AFV 4N4C FC3V DY5X 6M4V P120 9P4Y NY5K"  --name=VpsHandsAzure --server=ws://us1.nimiq.skypool.org:4000 --percent=80 
 
